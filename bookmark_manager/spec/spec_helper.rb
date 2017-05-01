@@ -1,5 +1,9 @@
 require 'capybara'
 require 'capybara/rspec'
+require_relative '../app/models/link.rb'
+require_relative '../app/app'
+
+Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
