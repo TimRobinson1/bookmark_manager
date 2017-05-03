@@ -1,5 +1,7 @@
+ENV['RACK_ENV'] = 'test'
 require 'capybara'
 require 'capybara/rspec'
+require 'database_cleaner'
 require_relative '../app/models/link.rb'
 require_relative '../app/app'
 
@@ -13,4 +15,18 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.append_after(:each) do
+    DatabaseCleaner.clean
+  end
+
 end
