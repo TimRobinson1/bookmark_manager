@@ -1,5 +1,9 @@
 <h1> Links </h1>
 
+  <% unless @user.nil? %>
+  <h2>Hey <%= @user.email %>!</h2>
+  <% end %>
+
 <ul id='links'>
   <% @links.each do |link| %>
     <li>Title: <%= link.title %></li>

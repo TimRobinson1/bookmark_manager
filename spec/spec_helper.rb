@@ -4,6 +4,7 @@ require 'capybara/rspec'
 require 'database_cleaner'
 require 'managing_links_helper'
 require_relative '../app/models/link.rb'
+require_relative '../app/models/user.rb'
 require_relative '../app/app'
 require_relative '../app/data_mapper_setup'
 
