@@ -8,7 +8,6 @@ class BookmarkManager < Sinatra::Base
 
   get '/links' do
     @links = Link.all
-    current_user
     erb(:links)
   end
 
